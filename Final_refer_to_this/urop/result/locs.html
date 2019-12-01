@@ -1,0 +1,205 @@
+﻿<!Doctype html>
+<html>
+<head>
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+    <script type="text/javascript">
+        var user_obj;
+        var beacon_obj;
+        function ajaxRequestUpdateUser() { // get user location
+            var request = new XMLHttpRequest();
+            request.onreadystatechange = function () {
+                if (request.readyState === 4) { // 成功完成
+                    // 判断响应结果:
+                    if (request.status === 200) {//
+                        console.log("success");
+                    } else {//
+                        console.log("failure....");
+                    }
+                } else {
+                    // HTTP请求还在继续...
+                }
+            }
+            request.overrideMimeType("application/json");
+            request.open('GET', 'update/', true);
+            request.onload = function () {
+                var jsonResponse = request.responseText;
+                user_obj = JSON.parse(jsonResponse);
+                //console.log(obj);
+            };
+            request.send();
+        }
+        function ajaxRequestUpdateBeacon() { // get beacon location
+            var request = new XMLHttpRequest();
+            request.onreadystatechange = function () {
+                if (request.readyState === 4) { // 成功完成
+                    // 判断响应结果:
+                    if (request.status === 200) {//
+                        console.log("success");
+                    } else {//
+                        console.log("failure....");
+                    }
+                } else {
+                    // HTTP请求还在继续...
+                }
+            }
+            request.overrideMimeType("application/json");
+            request.open('GET', 'updateBeacon/', true);
+            request.onload = function () {
+                var jsonResponse = request.responseText;
+                beacon_obj = JSON.parse(jsonResponse);
+                //console.log(obj);
+            };
+            request.send();
+        }
+        /*
+                used for sending user location info to django to update user data
+                commented since only needed in android device
+        */
+        //function ajaxRequestSend() {
+        //    var request = new XMLHttpRequest();
+        //    request.onreadystatechange = function () { //
+        //        if (request.readyState === 4) { // 成功完成
+        //            // 判断响应结果:
+        //            if (request.status === 200) {// 成
+
+        //            } else {// 失败，根据响应码判断失败原因:
+        //                console.log("failure....");
+        //            }
+        //        } else {
+        //            // HTTP请求还在继续...
+        //        }
+        //    }
+        //    var param = "nishishei";
+        //    //request.overrideMimeType("application/json");
+        //    request.open('POST', 'get/', true);
+        //    request.setRequestHeader("Content-type", 'text/plain; charset="utf-8"');
+        //    request.onload = function () {
+
+        //    };
+        //    request.send(param);
+        //}
+    </script>
+    {% load static %}
+    <script type="text/javascript" src="{% static 'locs/loc.js' %}">
+    </script>
+</head>
+<body>
+    <div id="map"></div>
+    {% load static %}
+    <script type="text/javascript">
+
+        var user_markers = [];
+        var beacon_markers = [];
+        var userArr = [];
+        var beaconArr = [];
+
+
+
+        function updateUserBeaconArr() {
+            userArr = [];
+            beaconArr = [];
+            var i;
+            for (i = 0; i < user_obj.length; i++) {
+                userArr.push(user_obj[i].get("fields"));
+            }
+            for (i = 0; i < beacon_obj.length; i++) {
+                beaconArr.push(beacon_obj[i].get("fields"));
+            }
+        }
+
+        function updateUserBeaconMarker() {
+            var i;
+            for (i = 0; i < user_markers.length; i++)
+                user_markers[i].setMap(null);
+            for (i = 0; i < beacon_markers.length; i++)
+                beacon_markers[i].setMap(null);
+            user_markers = [];
+            beacon_markers = [];
+
+            for (i = 0; i < userArr.length; i++) {
+                var point = { lat: parseFloat(userArr[i]["lat"]), lng: parseFloat(userArr[i]["lng"]) };
+                var marker = new google.maps.Marker({
+                    position: point,
+                    map: map,
+                    icon: "{% static 'locs/red_MarkerA.png' %}",
+                    title: userArr[i]["name"]
+                });
+                user_markers.push(marker);
+            }
+
+            for (i = 0; i < beaconArr.length; i++) {
+                var point = { lat: parseFloat(beaconArr[i]["lat"]), lng: parseFloat(beaconArr[i]["lng"]) };
+                var marker = new google.maps.Marker({
+                    position: point,
+                    map: map,
+                    icon: "{% static 'locs/yellow_MarkerA.png' %}",
+                    title: Arr[i]["name"]
+                });
+                beacon_markers.push(marker);
+            }
+        }
+
+        function updateAll() {
+            ajaxRequestUpdate();
+            ajaxRequestUpdateBeacon();
+            updateUserBeaconArr();
+            updateUserBeaconMarker();
+        }
+
+        function initMap() {
+
+            var centerPoint = { lat: 22.337118, lng: 114.263025 };
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 4,
+                center: centerPoint
+            });
+
+            // update user and beacon loc real time
+
+            //var user_coordinates = new Array();
+            //var i;
+            //for (i = 0; i < user_obj.length; i++){
+            //    user_coordinates[i][0] = user_obj[i].get("fields").get("lat").parseFloat();
+            //    user_coordinates[i][1] = user_obj[i].get("fields").get("lng").parseFloat();
+            //}
+            //for (i = 0; i < user_coordinates.length; i++){
+            //    var coords = { lat: user_coordinates[i][0], lng: user_coordinates[i][1] };
+            //    var marker = new google.maps.Marker({
+            //        position: coords,
+            //        map: map,
+            //        icon: "red_MarkerA.png"
+            //    });
+            //}
+
+
+
+
+
+            //var beacon_coordinates = new Array();
+            //for (i = 0; i < beacon_obj.length; i++){
+            //    beacon_coordinates[i][0] = beacon_obj[i].get("fields").get("lat").parseFloat();
+            //    beacon_coordinates[i][1] = beacon_obj[i].get("fields").get("lng").parseFloat();
+            //}
+            //for (i = 0; i < beacon_coordinates.length; i++){
+            //    var coords = { lat: beacon_coordinates[i][0], lng: beacon_coordinates[i][1] };
+            //    var marker = new google.maps.Marker({
+            //        position: coords,
+            //        map: map,
+            //        icon: "yellow_MarkerA.png"
+            //    });
+            //}
+            setInterval(updateAll, 500);
+        }
+        //setInterval(ajaxRequestUpdate, 500);
+        //setInterval(ajaxRequestUpdateBeacon, 500);
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhks110qy8cv9JCJFfWy9XrzBQvDTA3NU&callback=initMap">
+    </script>
+</body>
+</html>

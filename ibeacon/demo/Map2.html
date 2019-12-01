@@ -1,0 +1,52 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Testing</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="map.css" type="text/css" rel="stylesheet"/>
+<script src="localizationAlgorithm.js" type="text/javascript"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAY9YouOPuMBFpgwu4vpWhTi9f8_H4dj_Y&callback=initMap"></script>
+<script src="Map2JS.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+
+<table> 
+  <tr>  
+    <td width="900px" height="600px">
+     <div id="map"></div>
+    </td>
+    
+    <td valign="top">
+    <div class="controlPanel">
+    <h3 class="panelTitle">Control Panel</h3>
+    <a onclick="switchReporter();" class="myButton" id="reporterSwitch">Hide Trucks</a><br /><br />
+    
+    <input list="browsers" id="beaconSearch"> <a class="myButton2" onclick="searchBeacon();" id="searchButton">Search</a> 
+        <datalist id="browsers">
+        <option value="78:A5:04:13:3F:AB">
+        <option value="78:A5:04:13:3C:AF">
+        <option value="78:A5:04:13:3D:E8">
+        <option value="78:A5:04:13:3B:6E">
+        <option value="78:A5:04:13:3D:D5">
+
+        </datalist>
+        <br />
+        <br />
+        <div id="beaconInfo"></div>
+       
+        
+        
+        </div>
+    </td>
+  </tr>
+</table>
+
+
+ 
+</body>
+</html>

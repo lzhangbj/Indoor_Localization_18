@@ -1,0 +1,114 @@
+﻿<!Doctype html>
+<html>
+<head>
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+    <script type="text/javascript">
+        var obj;
+        //var time = "{{datee}}";
+        //var my = "111111";
+        //var test = "test_data_faile";
+        function ajaxRequestUpdate() {
+            var request = new XMLHttpRequest();
+            request.onreadystatechange = function () { // 状态发生变化时，函数被回调
+                if (request.readyState === 4) { // 成功完成
+                    // 判断响应结果:
+                    if (request.status === 200) {// 成功，通过responseText拿到响应的文本:
+                        console.log("success");
+                        //my = "22222";
+                        //return loadData();
+                    } else {// 失败，根据响应码判断失败原因:
+                        console.log("failure....");
+                    }
+                } else {
+                    // HTTP请求还在继续...
+                }
+            }
+            request.overrideMimeType("application/json");
+            request.open('GET', 'update/', true);
+            request.onload = function () {
+                var jsonResponse = request.responseText;
+                // do something with jsonResponse
+
+                // console.log(jsonResponse);
+                obj = JSON.parse(jsonResponse);
+                console.log(obj);
+            };
+            request.send();
+            //loadData();
+        }
+        function ajaxRequestSend() {
+            var request = new XMLHttpRequest();
+            request.onreadystatechange = function () { // 状态发生变化时，函数被回调
+            if (request.readyState === 4) { // 成功完成
+                // 判断响应结果:
+                if (request.status === 200) {// 成功，通过responseText拿到响应的文本:
+                    // console.log("success");
+                    //my = "22222";
+                    //return loadData();
+                } else {// 失败，根据响应码判断失败原因:
+                    console.log("failure....");
+                }
+            } else {
+                // HTTP请求还在继续...
+            }
+            }
+            var param = "nishishei";
+            //request.overrideMimeType("application/json");
+            request.open('POST', 'get/', true);
+            request.setRequestHeader("Content-type", 'text/plain; charset="utf-8"');
+            request.onload = function () {
+                //var jsonResponse = request.responseText;
+                // do something with jsonResponse
+                //console.log(jsonResponse);
+            };
+            request.send(param);
+        }
+        function loadData() {
+            for (var key in obj) {
+                console.log(key + ' ' + obj[key]["fields"]['name']);
+            }
+        }
+        setInterval(ajaxRequestUpdate, 500);
+    </script>
+    <!--{% load static %}
+    <script type="text/javascript" src="{% static 'locs/loc.js' %}">
+    </script>-->
+</head>
+<body>
+    <div id="map"></div>
+    <script type="text/javascript">
+        function initMap() {
+        // Assume there is a 2-D array named coordinates
+        <!-- var xSum = 0; -->
+        <!-- var ySum = 0; -->
+        <!-- for(int i = 0; i < coordinates.length; i++){
+            -->
+          <!--xSum = xSum + coordinates[i]; -->
+          <!--ySum = ySum + coordinates[i]; -->
+        <!-- } -->
+        <!-- var centerPoint = { lat: xSum / coordinates.length, lng: ySum / coordinates.length }; -->
+        var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 4,
+                center: { lat: 22.337118, lng: 114.263025 }
+            });
+        <!-- for(int i = 0; i < coordinates.length; i++){
+            -->
+          <!-- var coords = { lat: coordinates[i][0], lng: coordinates[i][1] }; -->
+          var marker = new google.maps.Marker({
+                    position: { lat: 22.337118, lng: 114.263025 },
+                    map: map
+                });
+        <!-- } -->
+      }
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5hVB52R1bfh2jA-O91cPrDjViX7h2LWc&callback=initMap">
+    </script>
+
+</body>
+</html>

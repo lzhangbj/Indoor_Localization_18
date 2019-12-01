@@ -1,0 +1,350 @@
+@charset "utf-8";
+/*  idTabs ~ lugu~2012-05-01 */
+
+/*  idTabs ~ lugu~~~~~www.zhegu.org */
+.usual{
+     padding-top:5px;
+   
+    text-align:center;
+    background:url("back.jpg");
+    height:600px;
+    width:400px;
+    border-color: #057fd0;
+    border-width: 30px;
+    border:3px solid #FFBD35;
+}
+.usual li { list-style:none; float:left; }
+.usual ul a {
+   
+  display:block;
+  padding:6px 10px;
+  width:130px;
+  height:15px;
+  text-decoration:none!important;
+  margin:1px;
+  margin-left:5px;
+  font:10px Verdana;
+  color:#FFF;
+  background:#FFDE56;
+   border-radius: 60px;
+}
+.usual ul a:hover {
+  color:#FFF;
+  background:#3d5c2c;
+ }
+.usual ul a.selected {
+  margin-bottom:0;
+  color:#000;
+  background:#C83E19;
+  border-bottom:1px solid #c3f4a8;
+  cursor:default;
+  }
+.usual div {
+  padding:10px 10px 8px 10px;
+  *padding-top:3px;
+  *margin-top:-15px;
+  clear:left;
+ 
+  font:10pt Georgia;
+}
+.usual div a { color:#000; font-weight:bold; }
+
+
+
+
+/* CSS Document */
+html, body {
+    height: 100% ;
+    margin: 0; padding: 0; 
+    background-color: #32B2CF;
+}
+
+#map { 
+width:100%;
+height: 100%; 
+ border:3px solid #FFBD35;
+}
+
+.mapcell{
+    width:80%;
+}
+.myButton {
+	-moz-box-shadow:inset 0px 1px 2px 0px #cf866c;
+	-webkit-box-shadow:inset 0px 1px 2px 0px #cf866c;
+	box-shadow:inset 0px 1px 2px 0px #cf866c;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #d0451b), color-stop(1, #bc3315));
+	background:-moz-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+	background:-webkit-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+	background:-o-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+	background:-ms-linear-gradient(top, #d0451b 5%, #bc3315 100%);
+	background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d0451b', endColorstr='#bc3315',GradientType=0);
+	background-color:#d0451b;
+	-moz-border-radius:27px;
+	-webkit-border-radius:27px;
+	border-radius:27px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	padding:12px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #854629;
+     -webkit-transition: all .25s ease-in-out;
+       -moz-transition: all .25s ease-in-out;
+         -o-transition: all .25s ease-in-out;
+            transition: all .25s ease-in-out;
+}
+.myButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #bc3315), color-stop(1, #d0451b));
+	background:-moz-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+	background:-webkit-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+	background:-o-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+	background:-ms-linear-gradient(top, #bc3315 5%, #d0451b 100%);
+	background:linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#bc3315', endColorstr='#d0451b',GradientType=0);
+	background-color:#bc3315;
+    border-radius:6px;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+.InfoBody{
+    font-family:Verdana, Geneva, sans-serif;
+    color:#FDF569;
+}
+.InfoTitle{
+    font-family:Verdana, Geneva, sans-serif;
+    color:#C53B18;
+}
+#beaconSearch,#reporterSearch,#beaconPathSearch,#reporterPathSearch{
+    font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+    height:25px;
+    border-radius: 6px;
+}
+
+
+
+.myButton2 {
+	-moz-box-shadow: 0px 1px 0px 0px #f0f7fa;
+	-webkit-box-shadow: 0px 1px 0px 0px #f0f7fa;
+	box-shadow: 0px 1px 0px 0px #f0f7fa;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #33bdef), color-stop(1, #019ad2));
+	background:-moz-linear-gradient(top, #33bdef 5%, #019ad2 100%);
+	background:-webkit-linear-gradient(top, #33bdef 5%, #019ad2 100%);
+	background:-o-linear-gradient(top, #33bdef 5%, #019ad2 100%);
+	background:-ms-linear-gradient(top, #33bdef 5%, #019ad2 100%);
+	background:linear-gradient(to bottom, #33bdef 5%, #019ad2 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#33bdef', endColorstr='#019ad2',GradientType=0);
+	background-color:#33bdef;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #057fd0;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #5b6178;
+     -webkit-transition: all .25s ease-in-out;
+       -moz-transition: all .25s ease-in-out;
+         -o-transition: all .25s ease-in-out;
+            transition: all .25s ease-in-out;
+}
+.myButton2:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #019ad2), color-stop(1, #33bdef));
+	background:-moz-linear-gradient(top, #019ad2 5%, #33bdef 100%);
+	background:-webkit-linear-gradient(top, #019ad2 5%, #33bdef 100%);
+	background:-o-linear-gradient(top, #019ad2 5%, #33bdef 100%);
+	background:-ms-linear-gradient(top, #019ad2 5%, #33bdef 100%);
+	background:linear-gradient(to bottom, #019ad2 5%, #33bdef 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#019ad2', endColorstr='#33bdef',GradientType=0);
+	background-color:#019ad2;
+    border-radius:60px;
+}
+.myButton2:active {
+	position:relative;
+	top:1px;
+}
+.controlPanel{
+    text-align:center;
+    height:600px;
+    width:400px;
+   
+}
+.panelTitle{
+    padding-top: 5px;
+    color:#FFCE44;
+     -o-transition:all .5s linear;
+    -webkit-transition: all .5s linear;
+    -moz-transition: all.5s linear;
+    transition:  all .5s linear;
+}
+.panelTitle:hover{
+    background:#39F;
+	color:#48887B;
+ }
+
+.myButton3 {
+	-moz-box-shadow: 0px 1px 0px 0px #fff6af;
+	-webkit-box-shadow: 0px 1px 0px 0px #fff6af;
+	box-shadow: 0px 1px 0px 0px #fff6af;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffec64), color-stop(1, #ffab23));
+	background:-moz-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+	background:-webkit-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+	background:-o-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+	background:-ms-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+	background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffec64', endColorstr='#ffab23',GradientType=0);
+	background-color:#ffec64;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #ffaa22;
+	display:inline-block;
+	cursor:pointer;
+	color:#333333;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffee66;
+}
+.myButton3:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffab23), color-stop(1, #ffec64));
+	background:-moz-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+	background:-webkit-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+	background:-o-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+	background:-ms-linear-gradient(top, #ffab23 5%, #ffec64 100%);
+	background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffab23', endColorstr='#ffec64',GradientType=0);
+	background-color:#ffab23;
+    border-radius:60px;
+}
+.myButton3:active {
+	position:relative;
+	top:1px;
+}
+ .css-input{
+   
+    padding:3px; 
+    font-size:16px; 
+    border-width:2px;
+    border-style:solid;
+    border-radius:50px;
+    border-color:#b9f005; 
+    color:#f70808;
+    font-weight:normal;
+    font-style:none;
+    text-shadow:0px 0px 0px rgba(42,42,42,.100);
+    box-shadow: -1px 2px 11px 0px rgba(42,42,42,.80); 
+} 
+.css-input:focus {
+    outline:none;
+} 
+ 
+ .pathPanelTitle{
+    color:#C53B18;
+    font-size:20px;
+    
+ }
+ 
+ .pathPanel{
+    border-width: 3px;
+    width:375px;
+    margin-left: -20px;
+    
+ }
+ .hint{
+    border-radius: 60px;
+    color:#FFFF00;
+    font-size: 20px;
+    font-weight: 500;
+    font-style: italic;
+    padding-right:5px;
+     -webkit-transition: all .25s ease-in-out;
+       -moz-transition: all .25s ease-in-out;
+         -o-transition: all .25s ease-in-out;
+            transition: all .25s ease-in-out;
+ }
+ .hint:hover{
+    background:#FF0000;
+	color:#FFE55D;
+ }
+ .searchPanel{
+    text-align:left;
+    padding-left: 5px;
+ }
+ .designer{
+    margin-left:100px;
+	margin-right:100px;
+ }
+ .designer_info{
+    text-align:center;
+    color:#CA3F19;
+ }
+ .title{
+    font-family:Geneva, sans-serif;
+    margin-left: 200px;
+      margin-right:200px;
+    color:#FFBD35;
+    border-radius:50px;
+    text-align:center;
+    -o-transition:all .5s linear;
+    -webkit-transition: all .5s linear;
+    -moz-transition: all.5s linear;
+    transition:  all .5s linear;
+    
+ }
+.title:hover{
+	background:#39F;
+	color:#48887B;
+}
+input[type=radio].css-checkbox {
+position:absolute; z-index:-1000; left:-1000px; overflow: hidden; clip: rect(0 0 0 0); height:1px; width:1px; margin:-1px; padding:0; border:0;
+}
+
+input[type=radio].css-checkbox + label.css-label {
+padding-left:21px;
+height:16px; 
+display:inline-block;
+line-height:16px;
+background-repeat:no-repeat;
+background-position: 0 0;
+font-size:16px;
+vertical-align:middle;
+cursor:pointer;
+
+}
+
+input[type=radio].css-checkbox:checked + label.css-label {
+background-position: 0 -16px;
+}
+label.css-label {
+background-image:url(http://csscheckbox.com/checkboxes/u/csscheckbox_d812d378e2fbf8a8c23c16391a1986f6.png);
+-webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+.timeSelect{
+    text-align:right;
+   
+    margin-right: 800px;
+}
+
+
+
